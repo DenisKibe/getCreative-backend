@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <script>
+        $.ajax({
+            url: "http://me.semewear.co.ke/public/api/v1/articles",
+
+            method: 'GET',
+            dataType: 'json',
+            headers: {
+                'Authorization':'Bearer qLGuumbJU3WJkUJzSJ0q1Ow5QFBnyJfqVWsBPpNuFRm4eGRsKmKOu1aZ21Vk',
+                'Content-Type': 'application/json',
+            },
+            processData:false,//JSON.stringify({'title':'Anonymous and the Tip','text':'<b>This is a story about Mr.Anonymous and the tip. It is a self explanotory story. sit back relax and enjoy.</b>','categoryId':'Forest'}),
+            success: function (ResponseBody) {
+
+                outletResponse = JSON.parse(JSON.stringify(ResponseBody));
+
+                console.log(JSON.stringify(ResponseBody));
+            },
+            error: function (error) {
+                console.log(JSON.stringify(error));
+                alert(JSON.stringify(error));
+            }
+        });
+    </script>
+</body>
+</html>
